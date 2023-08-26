@@ -1,18 +1,39 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
+import typescript from './typescript.svg'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <span class="flex justify-center">
-      <a href="https://vitejs.dev" target="_blank">
-        <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-        <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-    </span>
-    <h1>Vite + TypeScript</h1>
-    <h1 class="text-3xl font-bold underline my-8 underline-offset-8">Blog App</h1>
+
+`
+const headerContent :string[] = ['Home', 'ABout', 'Contact', 'Sign In', 'Sign Up'];
+const header = document.querySelector('#header')!;
+const navBar = (content :string) :string => {
+  return `<li class='hover:text-black'><a href="#">${content}</a></li>`
+}
+
+headerContent.map((el) => console.log(navBar(el)))
+
+header.innerHTML = `
+  <div class="logo hidden border">
+    <img src="${typescript}" />
+  </div>
+  <nav id="navbar" class="hidden lg:block">
+    <ul class="flex gap-4">
+      ${ headerContent.map((el) => navBar(el) ) }
+    </ul>
+  </nav>
+  <div class="mobile-nav lg:hidden">
+    <ul class="flex justify-between items-center border">
+      <li>
+        <a>
+          <span class="material-symbols-outlined">menu_open</span>
+        </a>
+      </li>
+      <li class=""><img src="${typescript}"/></li>
+      <li>
+        <a>
+          <span class="material-symbols-outlined">search</span>
+        </a>
+      </li>
+    </ul>
   </div>
 `
