@@ -22,7 +22,7 @@ header.innerHTML = `
     </ul>
   </nav>
   <div class="mobile-nav lg:hidden">
-    <ul class="flex justify-between items-center border">
+    <ul class="flex justify-between items-center">
       <li>
         <a>
           <span class="material-symbols-outlined">menu_open</span>
