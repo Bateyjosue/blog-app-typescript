@@ -5,12 +5,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 `
 const headerContent :string[] = ['Home', 'ABout', 'Contact', 'Sign In', 'Sign Up'];
-const header = document.querySelector('#header')!;
-const navBar = (content :string) :string => {
-  return `<li class='hover:text-black'><a href="#">${content}</a></li>`
-}
+const categoriesTab :string[] = ['Development', 'Design', 'SoftSkills'];
 
-headerContent.map((el) => console.log(navBar(el)))
+const header = document.querySelector('#header')!;
+const categoryTab = document.querySelector('#category__tab ul')!;
+
+const placeContent = (content :string) :string => {
+  return `<li class='hover:text-black'><a href="#" class="text-white">${content}</a></li>`
+}
 
 header.innerHTML = `
   <div class="logo hidden border">
@@ -18,7 +20,7 @@ header.innerHTML = `
   </div>
   <nav id="navbar" class="hidden lg:block">
     <ul class="flex gap-4">
-      ${ headerContent.map((el) => navBar(el) ) }
+      ${ headerContent.map((el) => placeContent(el) ).join(" ")}}
     </ul>
   </nav>
   <div class="mobile-nav lg:hidden">
@@ -36,4 +38,8 @@ header.innerHTML = `
       </li>
     </ul>
   </div>
+`
+
+categoryTab.innerHTML += ` 
+  ${categoriesTab.map((category) => placeContent(category)).join('')}
 `
