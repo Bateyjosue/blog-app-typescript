@@ -6,9 +6,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `
 const headerContent :string[] = ['Home', 'ABout', 'Contact', 'Sign In', 'Sign Up'];
 const categoriesTab :string[] = ['Development', 'Design', 'SoftSkills'];
+const tags :string[] = ['Development', 'Design', 'JavaScript']
 
 const header = document.querySelector('#header')!;
 const categoryTab = document.querySelector('#category__tab ul')!;
+const tagElements = document.querySelectorAll('.tags')!;
 
 const placeContent = (content :string) :string => {
   return `<li class='hover:text-black'><a href="#" class="text-white">${content}</a></li>`
@@ -43,3 +45,10 @@ header.innerHTML = `
 categoryTab.innerHTML += ` 
   ${categoriesTab.map((category) => placeContent(category)).join('')}
 `
+
+
+tagElements.forEach((tag) => {
+  tag.innerHTML = `
+  ${ tags.map((tag) => '#' + placeContent(tag)).join('')}
+`
+});
