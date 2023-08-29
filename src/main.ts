@@ -56,7 +56,7 @@ posts.map((post) =>{
         </div>
         <div class="py-4 px-4">
           <div class="title flex justify-between py-4">
-            <h4 class="text-2xl"></h4>
+            <h4 class="text-xl">${post.title}</h4>
             <span class="material-symbols-outlined text-primary">share</span>
           </div>
           <h6 class="py-4 opacity-60 font-bold">${post.pubDate}</h6>
