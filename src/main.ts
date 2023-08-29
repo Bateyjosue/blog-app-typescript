@@ -13,7 +13,7 @@ const categoryTab = document.querySelector('#category__tab ul')!;
 const tagElements = document.querySelectorAll('.tags')!;
 
 const placeContent = (content :string) :string => {
-  return `<li class='hover:text-black'><a href="#" class="text-white">${content}</a></li>`
+  return `<li class='hover:text-black'><a href="#" class="text-white md:text-darker">${content}</a></li>`
 }
 
 header.innerHTML = `
@@ -25,17 +25,17 @@ header.innerHTML = `
       ${ headerContent.map((el) => placeContent(el) ).join(" ")}}
     </ul>
   </nav>
-  <div class="mobile-nav lg:hidden">
+  <div class="mobile-nav md:text-darker lg:hidden">
     <ul class="flex justify-between items-center">
       <li>
         <a>
-          <span class="material-symbols-outlined">menu_open</span>
+          <span class="material-symbols-outlined md:text-darker md:text-[45px] font-bold">menu_open</span>
         </a>
       </li>
-      <li class=""><img src="${typescript}"/></li>
+      <li class=""><img src="${typescript}" class="h-[45px] w-[45px]" /></li>
       <li>
         <a>
-          <span class="material-symbols-outlined">search</span>
+          <span class="material-symbols-outlined md:text-darker md:text-[45px] font-bold">search</span>
         </a>
       </li>
     </ul>
