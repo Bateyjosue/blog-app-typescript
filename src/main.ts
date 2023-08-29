@@ -13,11 +13,11 @@ const categoryTab = document.querySelector('#category__tab ul')!;
 const tagElements = document.querySelectorAll('.tags')!;
 
 const placeContent = (content :string) :string => {
-  return `<li class='hover:text-black'><a href="#" class="text-white md:text-darker">${content}</a></li>`
+  return `<li class='hover:text-black'><a href="#" class="text-white">${content}</a></li>`
 }
 
 header.innerHTML = `
-  <div class="logo hidden border">
+  <div class="logo hidden">
     <img src="${typescript}" />
   </div>
   <nav id="navbar" class="hidden lg:block">
