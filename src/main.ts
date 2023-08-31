@@ -5,7 +5,9 @@ import { posts } from './data/posts'
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 `
-const headerContent :string[] = ['Home', 'ABout', 'Contact', 'Sign In', 'Sign Up'];
+const headerContent :string[] = ['Home', 'ABout', 'Contact', 'Sign In', 'Sign Up', `<a>
+<span class="material-symbols-outlined md:text-darker lg:text-white md:text-[45px] font-bold">search</span>
+</a>`];
 const categoriesTab :string[] = ['Development', 'Design', 'SoftSkills'];
 const tags :string[] = ['Development', 'Design', 'JavaScript']
 
@@ -18,15 +20,15 @@ const placeContent = (content :string) :string => {
 }
 
 header.innerHTML = `
-  <div class="logo hidden">
+  <div class="logo hidden lg:block">
     <img src="${typescript}" />
   </div>
   <nav id="navbar" class="hidden lg:block">
-    <ul class="flex gap-4">
-      ${ headerContent.map((el) => placeContent(el) ).join(" ")}}
+    <ul class="flex gap-8 items-center">
+      ${ headerContent.map((el) => placeContent(el) ).join(" ")}
     </ul>
   </nav>
-  <div class="mobile-nav md:text-darker lg:hidden">
+  <div class="mobile-nav md:text-darker  lg:hidden">
     <ul class="flex justify-between items-center">
       <li>
         <a>
@@ -49,8 +51,8 @@ categoryTab.innerHTML += `
 
 
 posts.map((post) =>{
-  postContainer.innerHTML = `
-    <article>
+  postContainer.innerHTML += `
+    <article class="md:border md:rounded-3xl md:overflow-hidden">
         <div>
           <img src="/src/assets/img/mac.webp" alt="">
         </div>
