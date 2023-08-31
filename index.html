@@ -8,17 +8,21 @@
     <title>Blog | Home</title>
   </head>
   <body class="">
+    <section class="spinner__container">
+      <h5 class="font-bold text-xl text-center">“Patience is the best remedy for every trouble.”</h5>
+      <div class="spinner"></div>
+    </section>
     <header id="header" class="wrapper-sm wrapper-md wrapper-lg flex flex-col md:bg-primary md:max-w-[100%] lg:flex-row lg:items-center lg:justify-between"></header>
     <main class="">
-      <section id="headline" class="wrapper-sm  text-3xl text-center leading-8 font-bold md:bg-primary md:max-w-[100%] md:-mt-1">
-        <h2>This is where you share your Ideas, <em class="hidden md:block leading-loose lg:block">with the hole World . . .</em></h2>
+      <section id="headline" class="wrapper-sm  text-3xl text-center leading-8 font-bold md:bg-primary md:max-w-[100%] md:-mt-1 ">
+        <h2 class="lg:hidden">This is where you share your Ideas, <em class="hidden md:block leading-loose lg:block">with the hole World . . .</em></h2>
       </section>
-      <section id="category__tab" class="wrapper-sm border-t-2 md:border-none text-xl">
+      <section id="category__tab" class="wrapper-sm border-t-2 md:border-none text-xl lg:hidden">
         <ul class="flex gap-8 overflow-auto w-[100%]">
           <li class="border-b-4 border-primary text-primary font-bold  pb-4 pr-2">Latest</li>
         </ul>
       </section>
-      <section id="posts" class="wrapper-md grid grid-cols-1 md:grid-cols-2 md:gap-4">
+      <section id="posts" class="wrapper-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 wrapper-lg md:gap-4 lg:-mt-28">
       </section>
         
     </main>
