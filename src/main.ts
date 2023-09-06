@@ -2,9 +2,14 @@ import './style.css'
 import typescript from './typescript.svg'
 import { posts } from './data/posts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-
-`
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = ``
+const spinnerContainer = document.querySelector('.spinner__container') as HTMLDivElement;
+// add event after the page is loaded
+window.addEventListener('load', () => {
+  setTimeout(()=>{
+    spinnerContainer.style['visibility'] = 'hidden';
+  }, 1000);
+})
 const headerContent :string[] = ['Home', 'ABout', 'Contact', 'Sign In', 'Sign Up', `<a>
 <span class="material-symbols-outlined md:text-darker lg:text-white md:text-[45px] font-bold">search</span>
 </a>`];
