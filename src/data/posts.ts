@@ -1,41 +1,24 @@
-import {User, users} from './user'
-
-
 export interface Post {
-    title: string,
-    description: string,
-    pubDate: string,
-    tags: string[],
-    author: User
+  author: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  content: string;
+  urlToImage: string;
+  url: string;
 }
+let posts: Post[] = [];
+export const fetchPost = async (url: string) => {
+  let posts: Post[] = [];
+  try {
+    const res = await fetch(url).then((response) => response.json());
+    posts = res.articles;
+  } catch (err :any){console.log(`Something went wrong: ${err.message}`)}
+  return posts;
+};
 
-export const posts :Post[] = [
-    {
-        title: 'How Apple’s M1 Chips Make macOS Developement Much Less Costly',
-        description: 'Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
-        pubDate: 'June 09, 2023 - 01:10 PM',
-        tags: ['Development', 'Design'],
-        author: users[0]
-    },
-    {
-        title: 'How Apple’s M1 Chips Make macOS Developement Much Less Costly',
-        description: 'Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
-        pubDate: 'June 09, 2023 - 01:10 PM',
-        tags: ['Development', 'Design'],
-        author: users[0]
-    },
-    {
-        title: 'How Apple’s M1 Chips Make macOS Developement Much Less Costly',
-        description: 'Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
-        pubDate: 'June 09, 2023 - 01:10 PM',
-        tags: ['Development', 'Design'],
-        author: users[0]
-    },
-    {
-        title: 'How Apple’s M1 Chips Make macOS Developement Much Less Costly',
-        description: 'Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
-        pubDate: 'June 09, 2023 - 01:10 PM',
-        tags: ['Development', 'Design'],
-        author: users[0]
-    }
-]
+posts = await fetchPost(
+  "https://newsapi.org/v2/everything?q=tesla&from=2023-08-07&sortBy=publishedAt&apiKey=f55d9fb7b60440739bfd36676db7a671",
+);
+
+export default posts;
