@@ -1,6 +1,6 @@
 import "./style.css";
 import typescript from "./typescript.svg";
-import posts from "./data/posts";
+import posts, {loadPosts} from "./data/posts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = ``;
 const spinnerContainer = document.querySelector(
@@ -29,6 +29,16 @@ const tags: string[] = ["Development", "Design", "JavaScript"];
 const header = document.querySelector("#header")!;
 const categoryTab = document.querySelector("#category__tab ul")!;
 const postContainer = document.querySelector("#posts")!;
+const loader = document.querySelector('.loader')!;
+
+const hideLaoder = () => {
+  loader.classList.remove('show')
+}
+
+const showLoader = () => {
+  loader.classList.add('show')
+}
+
 
 const placeContent = (content: string): string => {
   return `<li class='hover:text-black'><a href="#" class="text-white">${content}</a></li>`;
@@ -64,33 +74,7 @@ categoryTab.innerHTML += `
   ${categoriesTab.map((category) => placeContent(category)).join("")}
 `;
 
-posts
-  .filter((post) => post.author).slice(0, 10)
-  .map((post) => {
-    let {urlToImage, url, title, publishedAt, description} = post
-    postContainer.innerHTML += `
-    <article class="md:border md:rounded-3xl md:overflow-hidden flex flex-col">
-        <div class="">
-          <img src="${urlToImage}" alt="" class="w-[100%] h-fit">
-        </div>
-        <div class="py-4 px-4 flex flex-col grow">
-          <div class="title flex justify-between py-4">
-            <h4 class="text-xl"><a href="${url}">${title}</a></h4>
-            <span class="material-symbols-outlined text-primary">share</span>
-          </div>
-          <h6 class="py-4 opacity-60 font-bold">${publishedAt}</h6>
-          <p class="text-lg py-4 leading-8">${description}</p>
-          <div class="flex justify-between py-4 grow items-end">
-            <ul id="" class="tags flex gap-4 opacity-50">
-            </ul>
-            <span class="material-symbols-outlined text-primary">comment</span>
-          </div>
-        </div>
-      </article>
-    </section>
-  `;
-  });
-
+loadPosts(posts, 15, spinnerContainer, postContainer)
 const tagElements = document.querySelectorAll(".tags")!;
 
 tagElements.forEach((tag) => {
@@ -98,3 +82,7 @@ tagElements.forEach((tag) => {
   ${tags.map((tag) => placeContent(tag)).join("")}
 `;
 });
+
+window.addEventListener("scroll", () => {
+  const  {scrollTop, scrollHeight, clo} = document.documentElement
+})
