@@ -28,7 +28,7 @@
   align-items: center;
   position: fixed;
   padding: 2rem;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 .inner__container {
@@ -66,6 +66,17 @@
 
 .wrapper-sm {
   @apply container mx-auto py-8 px-4;
+}
+
+.hide {
+  @apply opacity-0
+}
+
+.show {
+  @apply opacity-100
+}
+
+.loader {
 }
 
 a {
